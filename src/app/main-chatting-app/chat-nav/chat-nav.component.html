@@ -1,0 +1,59 @@
+<mat-sidenav-container class="sidenav-container bg-dark text-white">
+  <mat-sidenav
+    #drawer
+    class="sidenav bg-dark text-white"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar class="bg-dark">History</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#" class="my-3">
+        <div class="my-5">
+          <div class="text-white">{{ year }}/{{ month }}/{{ dateOfMonth }}</div>
+          <div class="text-white">president Of Kenya</div>
+        </div></a
+      >
+      <hr />
+      <a mat-list-item href="#" class="my-3">
+        <div class="my-5">
+          <div class="text-white">{{ year }}/{{ month }}/{{ dateOfMonth }}</div>
+          <div class="text-white">president Of Kenya</div>
+        </div></a
+      >
+      <hr />
+      <a mat-list-item href="#" class="my-3">
+        <div class="my-5">
+          <div class="text-white">{{ year }}/{{ month }}/{{ dateOfMonth }}</div>
+          <div class="text-white">president Of Kenya</div>
+        </div></a
+      >
+      <hr />
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="" class="bg-primary">
+      @if (isHandset$ | async) {
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      }
+      <span>chat-app</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    @if (isHandset$ | async) {
+    <div>Phone</div>
+    <div><nevy11-phone-application></nevy11-phone-application></div>
+    } @else {
+    <div>Laptop</div>
+    <div class="myLap"><nevy11-laptop-app></nevy11-laptop-app></div>
+    }
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

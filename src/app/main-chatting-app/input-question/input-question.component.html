@@ -1,0 +1,8 @@
+<form (submit)="submit()" #inputForm="ngForm">
+  <mat-form-field>
+    <mat-label>Enter Input</mat-label>
+    <input matInput [(ngModel)]="question" name="question" />
+  </mat-form-field>
+
+  <button mat-raised-button type="submit" (click)="submit()">Submit</button>
+</form>
